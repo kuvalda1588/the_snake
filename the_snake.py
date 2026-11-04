@@ -1,4 +1,4 @@
-"""Змейка на Pygame"""
+"""игра «Змейка» на Pygame"""
 from random import choice
 
 import pygame
@@ -47,7 +47,7 @@ class Apple(GameObject):
         self.randomize_position()
 
     def randomize_position(self):
-        """задает рандом позицию"""
+        """задает случайную позицию"""
         self.position = (
             choice(range(0, SCREEN_WIDTH, GRID_SIZE)),
             choice(range(0, SCREEN_HEIGHT, GRID_SIZE))
@@ -80,9 +80,9 @@ class Snake(GameObject):
         dx, dy = self.direction
         new_x = (head[0] + dx * GRID_SIZE) % SCREEN_WIDTH
         new_y = (head[1] + dy * GRID_SIZE) % SCREEN_HEIGHT
-        
+
         self.positions.insert(0, (new_x, new_y))
-        
+
         if len(self.positions) > self.length:
             self.last = self.positions.pop()
         else:
